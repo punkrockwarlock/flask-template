@@ -18,6 +18,14 @@ app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
+class User(db.Model):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(20))
+    email = db.Column(db.String(50))
+    password = db.Column(db.String(50))
+
 @app.route('/')
 def home():
     google_key = os.environ["API_KEY"]
