@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}A Friend In Need - Register{% endblock %}
+
+{% block content %}
+<form class="form" action="" method="POST">
+    {{ form.email.label }}: {{ form.email(placeholder='yourname@example.com') }}
+    <br>
+    {{ form.password.label }}: {{ form.password }}
+    <br>
+    {{ form.confirm.label }}: {{ form.confirm }}
+    <br>
+    {{ form.submit }}
+    {{ form.csrf_token }}
+</form>
+{% endblock %}
