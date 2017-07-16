@@ -5,12 +5,16 @@ from wtforms.validators import DataRequired, Email, EqualTo
 from .validators import Unique
 from .models import User
 
-class EmailPasswordForm(Form):
+class RegisterForm(Form):
     email = StringField('Email', validators=[DataRequired(), Email(),
-        Unique(
-            User,
-            User.email,
-            message="There is already an account with that email")])
+    Unique(User, User.email, message="Email already registered.")])
+    password = PasswordField('Password', validators=[DataRequired(),
+        EqualTo('confirm', message='Passwords must match')])
+    confirm = PasswordField('Repeat Password')
+    submit = SubmitField(label='Submit')
+
+class LoginForm(Form):
+    email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(),
         EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Repeat Password')

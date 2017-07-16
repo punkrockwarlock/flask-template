@@ -5,9 +5,9 @@
         <meta content="initial-scale=1, width=device-width" name="viewport"/>
 
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
 
-        <script src="https://maps.googleapis.com/maps/api/js?key={{ key | urlencode }}&v=3.exp"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?key={{ key | urlencode }}&v=3.exp"></script>-->
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -16,6 +16,37 @@
         {% endblock %}
     </head>
     <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{{ url_for('home') }}">A Friend In Need</a>
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                {% for message in messages %}
+                  <p class="navbar-text">{{ message }}</p>
+                {% endfor %}
+              {% endif %}
+          {% endwith %}
+            <!--<ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Page 1</a></li>
+              <li><a href="#">Page 2</a></li>
+            </ul>-->
+            <ul class="nav navbar-nav navbar-right">
+              {% if current_user.is_authenticated %}
+              <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              {% else %}
+              <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+              <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+
+        </nav>
+
         {% block content %}
         {% endblock %}
     </body>
