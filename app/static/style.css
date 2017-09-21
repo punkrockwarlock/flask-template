@@ -8,6 +8,38 @@ body {
 
     margin: 0px;
     border-radius: 0;
+    padding: 100px 25px;
+
+    font-family: Montserrat, sans-serif;
+}
+
+.container-fluid {
+    padding: 60px 50px;
+}
+
+#navcontainer {
+    padding: 0px 10px 0px 10px;
+}
+
+#googleMap {
+     height:400px;
+     width:100%;
+}
+
+.logo {
+    font-size: 12em;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.bg-grey {
+    background-color: #f6f6f6;
+}
+
+.container {
+    margin: 0px;
 }
 
 /* navbar */
@@ -17,6 +49,13 @@ body {
     border-color: #fff;
 
     margin-bottom: 0;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 1px;
+
+    font-family: Montserrat, sans-serif;
 }
 /* Title */
 .navbar-default .navbar-brand {

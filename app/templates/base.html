@@ -7,7 +7,6 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
 
-        <!--<script src="https://maps.googleapis.com/maps/api/js?key={{ key | urlencode }}&v=3.exp"></script>-->
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -18,7 +17,7 @@
     <body>
 
         <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
+          <div class="container-fluid" id="navcontainer">
             <div class="navbar-header">
               <a class="navbar-brand" href="{{ url_for('home') }}">A Friend In Need</a>
             </div>
