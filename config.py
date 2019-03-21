@@ -1,3 +1,18 @@
-DEBUG = True        # turn on debugging
-BCRYPT_LEVEL = 12   # for hashing passwords
-MAIL_FROM_EMAIL = "ryan.dav.ritchie@gmail.com"
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    DEBUG = False
+    TESTING = False
+    CSRF_ENABLED = True
+    SECRET_KEY = 'this-needs-to-change'
+
+class ProductionConfig(Config):
+    DEBUG = False
+
+class DevelopmentConfig(Config):
+    DEVELOPMENT = True
+    DEBUG = True
+
+class TestingConfig(Config):
+    TESTING = True
